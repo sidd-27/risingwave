@@ -865,7 +865,7 @@ async fn make_consume_snapshot_stream<'a, S: StateStore>(
     let mut epoch_row_count = 0;
     let mut backfill_paused = initial_backfill_paused;
     loop {
-        let throttle_snapshot_stream = epoch_row_count as u64 > rate_limit.to_u64();
+        let throttle_snapshot_stream = epoch_row_count as u64 >= rate_limit.to_u64();
         match select_barrier_and_snapshot_stream(
             barrier_rx,
             &mut snapshot_stream,
