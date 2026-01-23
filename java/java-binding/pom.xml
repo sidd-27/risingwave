@@ -89,6 +89,10 @@
                         <configuration>
                             <path>../../src/java_binding</path>
                             <release>${java.binding.release}</release>
+                            <extraArgs>
+                                <extraArg>--config</extraArg>
+                                <extraArg>profile.dev.debug=0</extraArg>
+                            </extraArgs>
                             <copyTo>${project.build.directory}/classes/risingwave/jni</copyTo>
                             <copyWithPlatformDir>true</copyWithPlatformDir>
                         </configuration>
